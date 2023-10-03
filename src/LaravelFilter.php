@@ -7,8 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use stdClass;
 
-/** @phpstan-consistent-constructor */
-class LaravelFilter
+final class LaravelFilter
 {
     /**
      * @var array
