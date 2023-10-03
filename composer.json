@@ -6,7 +6,7 @@
         "laravel",
         "laravel-filter"
     ],
-    "homepage": "https://github.com/timedoor/laravel-filter",
+    "homepage": "https://github.com/backend-timedoor/laravel-filter",
     "license": "MIT",
     "authors": [
         {
@@ -16,9 +16,9 @@
         }
     ],
     "require": {
-        "php": "^8.1",
+        "php": "^8.0",
         "illuminate/contracts": "^10.0",
-        "illuminate/support": "^10.25",
+        "illuminate/support": "^10.0",
         "spatie/laravel-package-tools": "^1.14.0"
     },
     "require-dev": {
