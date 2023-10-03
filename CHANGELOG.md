@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-filter` will be documented in this file.
 
+## v1.0.1 - 2023-10-03
+
+### What's Changed
+
+- Fix packagist
+
 ## v1.0.0 - 2023-10-03
 
 ### What's Changed
