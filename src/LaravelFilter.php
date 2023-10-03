@@ -25,7 +25,7 @@ final class LaravelFilter
      */
     public static function create($subject, Request $request = null)
     {
-        return new static($subject, $request);
+        return new self($subject, $request);
     }
 
     /**
