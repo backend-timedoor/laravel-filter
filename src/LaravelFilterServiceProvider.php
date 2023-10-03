@@ -4,7 +4,7 @@ namespace Timedoor\LaravelFilter;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Timedoor\LaravelFilter\Commands\LaravelFilterCommand;
+use Timedoor\LaravelFilter\Commands\MakeFilterCommand;
 
 class LaravelFilterServiceProvider extends PackageServiceProvider
 {
@@ -20,6 +20,6 @@ class LaravelFilterServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             ->hasViews()
             ->hasMigration('create_laravel-filter_table')
-            ->hasCommand(LaravelFilterCommand::class);
+            ->hasCommand(MakeFilterCommand::class);
     }
 }
