@@ -35,14 +35,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Timedoor\\LaravelFilter\\": "src/",
-            "Timedoor\\LaravelFilter\\Database\\Factories\\": "database/factories/"
+            "Timedoor\\LaravelFilter\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Timedoor\\LaravelFilter\\Tests\\": "tests/",
-            "Workbench\\App\\": "workbench/app/"
+            "Timedoor\\LaravelFilter\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -50,13 +48,11 @@
         "clear": "@php vendor/bin/testbench package:purge-laravel-filter --ansi",
         "prepare": "@php vendor/bin/testbench package:discover --ansi",
         "build": [
-            "@composer run prepare",
-            "@php vendor/bin/testbench workbench:build --ansi"
+            "@composer run prepare"
         ],
         "start": [
             "Composer\\Config::disableProcessTimeout",
-            "@composer run build",
-            "@php vendor/bin/testbench serve"
+            "@composer run build"
         ],
         "analyse": "vendor/bin/phpstan analyse",
         "test": "vendor/bin/pest",
