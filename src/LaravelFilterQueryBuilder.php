@@ -9,11 +9,10 @@ use stdClass;
 class LaravelFilterQueryBuilder extends Builder
 {
     /**
-     * @param stdClass $subject
-     * @param \Illuminate\Http\Request|null $request
-     * @return static
+     * @param  stdClass  $subject
+     * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function applyFilter($subject, ?Request $request = null): static
+    public function applyFilter($subject, Request $request = null)
     {
         return LaravelFilter::create($subject, $request)->apply($this);
     }

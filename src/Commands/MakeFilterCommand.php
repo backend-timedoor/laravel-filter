@@ -20,7 +20,7 @@ class MakeFilterCommand extends GeneratorCommand
      */
     protected $description = 'Generate a new filter class';
 
-     /**
+    /**
      * The type of class being generated.
      *
      * @var string
@@ -29,7 +29,7 @@ class MakeFilterCommand extends GeneratorCommand
 
     protected function getStub()
     {
-        return __DIR__ . '/stubs/filter.php.stub';
+        return __DIR__.'/stubs/filter.php.stub';
     }
 
     /**

@@ -20,11 +20,11 @@ trait Filterable
     }
 
     /**
-     * @param stdClass $subject
-     * @param \Illuminate\Http\Request|null $request
+     * @param  stdClass  $subject
+     * @param  \Illuminate\Http\Request|null  $request
      * @return \Timedoor\LaravelFilter\LaravelFilterQueryBuilder
      */
-    public static function applyFilter($subject, ?Request $request = null)
+    public static function applyFilter($subject, Request $request = null)
     {
         /** @var \Timedoor\LaravelFilter\LaravelFilterQueryBuilder $builder */
         $builder = (new static)->newQuery();
