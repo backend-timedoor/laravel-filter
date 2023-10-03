@@ -3,15 +3,18 @@
 namespace Timedoor\LaravelFilter;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\Request;
+use stdClass;
 
 class LaravelFilterQueryBuilder extends Builder
 {
     /**
-     * @param \Timedoor\LaravelFilter\LaravelFilter $subject
+     * @param stdClass $subject
+     * @param \Illuminate\Http\Request|null $request
      * @return static
      */
-    public function apply($subject)
+    public function applyFilter($subject, ?Request $request = null): static
     {
-        return $subject->apply($this);
+        return LaravelFilter::create($subject, $request)->apply($this);
     }
 }

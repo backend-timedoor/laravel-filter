@@ -80,7 +80,7 @@ class LaravelFilter
                 continue;
             }
 
-            $query = call_user_func_array([$subject, $name], [$query, $value]);
+            $query = $subject->$name($query, $value);
         }
 
         return $query;
