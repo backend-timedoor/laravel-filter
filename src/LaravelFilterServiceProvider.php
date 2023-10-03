@@ -17,9 +17,6 @@ class LaravelFilterServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-filter')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_laravel-filter_table')
             ->hasCommand(MakeFilterCommand::class);
     }
 }
