@@ -1,3 +1,16 @@
 # Changelog
 
 All notable changes to `laravel-filter` will be documented in this file.
+
+## v1.0.0 - 2023-10-03
+
+### What's Changed
+
+- Create base package by @rizkyhidayattulloh
+- update readme by @rizkyhidayattulloh in https://github.com/backend-timedoor/laravel-filter/pull/5
+
+### Contributors
+
+- @rizkyhidayattulloh
+
+**Full Changelog**: https://github.com/backend-timedoor/laravel-filter/commits/v1.0.0
