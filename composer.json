@@ -17,8 +17,9 @@
     ],
     "require": {
         "php": "^8.1",
-        "spatie/laravel-package-tools": "^1.14.0",
-        "illuminate/contracts": "^10.0"
+        "illuminate/contracts": "^10.0",
+        "illuminate/support": "^10.25",
+        "spatie/laravel-package-tools": "^1.14.0"
     },
     "require-dev": {
         "laravel/pint": "^1.0",
@@ -73,10 +74,7 @@
         "laravel": {
             "providers": [
                 "Timedoor\\LaravelFilter\\LaravelFilterServiceProvider"
-            ],
-            "aliases": {
-                "LaravelFilter": "Timedoor\\LaravelFilter\\Facades\\LaravelFilter"
-            }
+            ]
         }
     },
     "minimum-stability": "dev",
