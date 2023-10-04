@@ -109,6 +109,72 @@ class HomeController extends Controller
 }
 ```
 
+## Advance Usage
+
+### Using Custom Laravel Query Builder
+
+In case you want to use your own laravel query builder, you need to follow this setup:
+
+```php
+// app/QueryBuilders/UserQueryBuilder.php
+
+<?php
+
+namespace App\QueryBuilders;
+
+use Timedoor\LaravelFilter\LaravelFilterQueryBuilder;
+
+class UserQueryBuilder extends LaravelFilterQueryBuilder
+{
+
+}
+```
+
+Make sure your query builder is extended to LaravelFilterQueryBuilder class
+
+```php
+// app/Models/User.php
+
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Timedoor\LaravelFilter\Concerns\Filterable;
+use App\QueryBuilders\UserQueryBuilder;
+
+class User extends Model
+{
+    use Filterable; 
+    
+    /**
+     * Create a new Eloquent query builder for the model.
+     *
+     * @param  \Illuminate\Database\Query\Builder  $query
+     * @return \App\QueryBuilders\UserQueryBuilder
+     */
+    public function newEloquentBuilder($query)
+    {
+        return new UserQueryBuilder($query);
+    }
+
+    /**
+     * @param  stdClass  $subject
+     * @param  \Illuminate\Http\Request|null  $request
+     * @return \App\QueryBuilders\UserQueryBuilder
+     */
+    public static function applyFilter($subject, Request $request = null)
+    {
+        /** @var \App\QueryBuilders\UserQueryBuilder $builder */
+        $builder = (new static)->newQuery();
+
+        return $builder->applyFilter($subject, $request);
+    }
+}
+```
+
+Now you can implement filter and your own query builder.
+
 ## Testing
 
 ```bash
