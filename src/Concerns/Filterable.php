@@ -2,9 +2,9 @@
 
 namespace Timedoor\LaravelFilter\Concerns;
 
-use GuzzleHttp\Psr7\Request;
-use stdClass;
+use Illuminate\Http\Request;
 use Timedoor\LaravelFilter\LaravelFilterQueryBuilder;
+use stdClass;
 
 trait Filterable
 {
@@ -21,14 +21,15 @@ trait Filterable
 
     /**
      * @param  stdClass  $subject
+     * @param  array<string, mixed>  $options
      * @param  \Illuminate\Http\Request|null  $request
      * @return \Timedoor\LaravelFilter\LaravelFilterQueryBuilder
      */
-    public static function applyFilter($subject, Request $request = null)
+    public static function applyFilter($subject, $options = [], Request $request = null)
     {
         /** @var \Timedoor\LaravelFilter\LaravelFilterQueryBuilder $builder */
         $builder = (new static)->newQuery();
 
-        return $builder->applyFilter($subject, $request);
+        return $builder->applyFilter($subject, $options, $request);
     }
 }
