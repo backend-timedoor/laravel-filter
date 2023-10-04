@@ -3,8 +3,8 @@
 namespace Timedoor\LaravelFilter\Concerns;
 
 use Illuminate\Http\Request;
-use Timedoor\LaravelFilter\LaravelFilterQueryBuilder;
 use stdClass;
+use Timedoor\LaravelFilter\LaravelFilterQueryBuilder;
 
 trait Filterable
 {
@@ -22,7 +22,6 @@ trait Filterable
     /**
      * @param  stdClass  $subject
      * @param  array<string, mixed>  $options
-     * @param  \Illuminate\Http\Request|null  $request
      * @return \Timedoor\LaravelFilter\LaravelFilterQueryBuilder
      */
     public static function applyFilter($subject, $options = [], Request $request = null)

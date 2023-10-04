@@ -65,12 +65,12 @@ final class LaravelFilter
         }
 
         if (array_key_exists('include', $options)) {
-            foreach($options['include'] as $key => $value) {
+            foreach ($options['include'] as $key => $value) {
                 if (empty($value)) {
                     continue;
                 }
 
-                if (array_key_exists($key, $this->filters) && !empty($this->filters[$key])) {
+                if (array_key_exists($key, $this->filters) && ! empty($this->filters[$key])) {
                     continue;
                 }
 
@@ -79,12 +79,12 @@ final class LaravelFilter
         }
 
         if (array_key_exists('exclude', $options)) {
-            foreach($options['exclude'] as $exclude) {
+            foreach ($options['exclude'] as $exclude) {
                 if (empty($exclude)) {
                     continue;
                 }
 
-                if (!array_key_exists($exclude, $this->filters)) {
+                if (! array_key_exists($exclude, $this->filters)) {
                     continue;
                 }
 
