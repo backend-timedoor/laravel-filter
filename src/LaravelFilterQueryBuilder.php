@@ -10,7 +10,7 @@ class LaravelFilterQueryBuilder extends Builder
 {
     /**
      * @param  stdClass  $subject
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return \Illuminate\Database\Eloquent\Builder|static
      */
     public function applyFilter($subject, Request $request = null)
     {
