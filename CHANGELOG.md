@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-filter` will be documented in this file.
 
+## v1.1.0 - 2023-10-04
+
+### What's Changed
+
+- Add Options & update Readme by @rizkyhidayattulloh in https://github.com/backend-timedoor/laravel-filter/pull/6
+
+### Contributors
+
+@rizkyhidayattulloh
+
+**Full Changelog**: https://github.com/backend-timedoor/laravel-filter/compare/v1.0.2...v1.1.0
+
 ## v1.0.2 - 2023-10-03
 
 ### What's Changes
