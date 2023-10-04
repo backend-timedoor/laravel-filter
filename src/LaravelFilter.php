@@ -21,22 +21,25 @@ final class LaravelFilter
 
     /**
      * @param  stdClass  $subject
+     * @param  array<string, mixed>  $options
      * @return \Timedoor\LaravelFilter\LaravelFilter
      */
-    public static function create($subject, Request $request = null)
+    public static function create($subject, $options, Request $request = null)
     {
-        return new self($subject, $request);
+        return new self($subject, $options, $request);
     }
 
     /**
      * @param  stdClass  $subject
+     * @param  array<string, mixed>  $options
      */
-    public function __construct($subject, Request $request = null)
+    public function __construct($subject, $options, Request $request = null)
     {
         $request = $request ?? request();
 
         $this->initializeFilters($request)
-            ->initializeSubject($subject);
+            ->initializeSubject($subject)
+            ->initializeOptions($options);
     }
 
     protected function initializeFilters(Request $request): static
@@ -51,6 +54,43 @@ final class LaravelFilter
         $this->subject = $subject instanceof stdClass
             ? $subject
             : new $subject;
+
+        return $this;
+    }
+
+    protected function initializeOptions(array $options): static
+    {
+        if (empty($options)) {
+            return $this;
+        }
+
+        if (array_key_exists('include', $options)) {
+            foreach($options['include'] as $key => $value) {
+                if (empty($value)) {
+                    continue;
+                }
+
+                if (array_key_exists($key, $this->filters) && !empty($this->filters[$key])) {
+                    continue;
+                }
+
+                $this->filters[$key] = $value;
+            }
+        }
+
+        if (array_key_exists('exclude', $options)) {
+            foreach($options['exclude'] as $exclude) {
+                if (empty($exclude)) {
+                    continue;
+                }
+
+                if (!array_key_exists($exclude, $this->filters)) {
+                    continue;
+                }
+
+                unset($this->filters[$exclude]);
+            }
+        }
 
         return $this;
     }

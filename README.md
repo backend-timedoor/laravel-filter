@@ -109,6 +109,117 @@ class HomeController extends Controller
 }
 ```
 
+## Advance Usage
+
+### Using Custom Laravel Query Builder
+
+In case you want to use your own laravel query builder, you need to follow this setup:
+
+```php
+// app/QueryBuilders/UserQueryBuilder.php
+
+<?php
+
+namespace App\QueryBuilders;
+
+use Timedoor\LaravelFilter\LaravelFilterQueryBuilder;
+
+class UserQueryBuilder extends LaravelFilterQueryBuilder
+{
+
+}
+```
+
+Make sure your query builder is extended to LaravelFilterQueryBuilder class
+
+```php
+// app/Models/User.php
+
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Timedoor\LaravelFilter\Concerns\Filterable;
+use App\QueryBuilders\UserQueryBuilder;
+
+class User extends Model
+{
+    use Filterable; 
+    
+    /**
+     * Create a new Eloquent query builder for the model.
+     *
+     * @param  \Illuminate\Database\Query\Builder  $query
+     * @return \App\QueryBuilders\UserQueryBuilder
+     */
+    public function newEloquentBuilder($query)
+    {
+        return new UserQueryBuilder($query);
+    }
+
+    /**
+     * @param  stdClass  $subject
+     * @param  \Illuminate\Http\Request|null  $request
+     * @param  array<string, mixed>  $options
+     * @return \App\QueryBuilders\UserQueryBuilder
+     */
+    public static function applyFilter($subject, $options = [], Request $request = null)
+    {
+        /** @var \App\QueryBuilders\UserQueryBuilder $builder */
+        $builder = (new static)->newQuery();
+
+        return $builder->applyFilter($subject, $options, $request);
+    }
+}
+```
+
+Now you can implement filter with your own query builder.
+
+### Using with Options
+
+There are 2 options that available `include` and `exclude` you can pass the options inside applyFilter() method
+
+```php
+User::applyFilter(UserFilter::class, [
+    'include' => [
+        'name' => 'John',
+        'email' => 'fhuel@example.org'
+    ],
+    'exclude' => ['address']
+])
+```
+
+#### Include
+
+This option is when you want to call filter method even if the request params is not set. For example you want to filter user by their names and your endpoint looks like this `http://localhost/user?name=John`. But if the request doesn't have `name` query your filter method will not called. If you want to always call your filter method even if the request doesn't have query, you can use `include` option
+
+```php
+User::applyFilter(UserFilter::class, [
+    'include' => ['name' => 'John']
+])
+```
+
+#### Exclude
+
+This option is for prevent the filter method called. For example you have `name()` method inside your filter class and the request query looks like this `http://localhost/user?name=John`. But you don't want `name()` method called, you can use exclude option
+
+```php
+User::applyFilter(UserFilter::class, [
+    'exclude' => ['name']
+])
+```
+
+## Chaining Filter
+
+If you want to use more than 1 filter class, you can chain the `applyFilter` method, so it will looks like this:
+
+```php
+User::applyFilter(Foo::class)
+    ->applyFilter(Bar::class)
+    ->get()
+```
+
 ## Testing
 
 ```bash
