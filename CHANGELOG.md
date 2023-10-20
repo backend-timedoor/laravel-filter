@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-filter` will be documented in this file.
 
+## Add laravel 8 supports - 2023-10-20
+
+### What's Changed
+
+- Update composer.json, add support laravel 8 by @novalfaiq in https://github.com/backend-timedoor/laravel-filter/pull/8
+
+### New Contributors
+
+- @novalfaiq made their first contribution in https://github.com/backend-timedoor/laravel-filter/pull/8
+
+**Full Changelog**: https://github.com/backend-timedoor/laravel-filter/compare/v1.1.0...v1.1.1
+
 ## v1.1.0 - 2023-10-04
 
 ### What's Changed
