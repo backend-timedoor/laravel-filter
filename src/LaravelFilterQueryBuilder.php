@@ -13,7 +13,7 @@ class LaravelFilterQueryBuilder extends Builder
      * @param  array<string, mixed>  $options
      * @return \Illuminate\Database\Eloquent\Builder|static
      */
-    public function applyFilter($subject, $options = [], Request $request = null)
+    public function applyFilter($subject, $options = [], ?Request $request = null)
     {
         return LaravelFilter::create($subject, $options, $request)->apply($this);
     }

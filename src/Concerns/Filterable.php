@@ -24,7 +24,7 @@ trait Filterable
      * @param  array<string, mixed>  $options
      * @return \Timedoor\LaravelFilter\LaravelFilterQueryBuilder
      */
-    public static function applyFilter($subject, $options = [], Request $request = null)
+    public static function applyFilter($subject, $options = [], ?Request $request = null)
     {
         /** @var \Timedoor\LaravelFilter\LaravelFilterQueryBuilder $builder */
         $builder = (new static)->newQuery();

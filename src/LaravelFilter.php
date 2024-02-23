@@ -24,7 +24,7 @@ final class LaravelFilter
      * @param  array<string, mixed>  $options
      * @return \Timedoor\LaravelFilter\LaravelFilter
      */
-    public static function create($subject, $options, Request $request = null)
+    public static function create($subject, $options, ?Request $request = null)
     {
         return new self($subject, $options, $request);
     }
@@ -33,7 +33,7 @@ final class LaravelFilter
      * @param  stdClass  $subject
      * @param  array<string, mixed>  $options
      */
-    public function __construct($subject, $options, Request $request = null)
+    public function __construct($subject, $options, ?Request $request = null)
     {
         $request = $request ?? request();
 
@@ -107,9 +107,9 @@ final class LaravelFilter
             if (is_array($value) && empty($value)) {
                 continue;
             }
-            
+
             if (! isset($value)) {
-                continue; 
+                continue;
             }
 
             $name = Str::camel($filterName);
