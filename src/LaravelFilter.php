@@ -104,8 +104,12 @@ final class LaravelFilter
         $subject = $this->subject;
 
         foreach ($this->filters as $filterName => $value) {
-            if (empty($value)) {
+            if (is_array($value) && empty($value)) {
                 continue;
+            }
+            
+            if (! isset($value)) {
+                continue; 
             }
 
             $name = Str::camel($filterName);
