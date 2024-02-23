@@ -2,6 +2,19 @@
 
 All notable changes to `laravel-filter` will be documented in this file.
 
+## v1.1.2 - 2024-02-23
+
+### What's Changed
+
+* Bump aglipanci/laravel-pint-action from 2.3.0 to 2.3.1 by @dependabot in https://github.com/backend-timedoor/laravel-filter/pull/9
+* Update apply() in LaravelFilter by @taradhita in https://github.com/backend-timedoor/laravel-filter/pull/10
+
+### New Contributors
+
+* @taradhita made their first contribution in https://github.com/backend-timedoor/laravel-filter/pull/10
+
+**Full Changelog**: https://github.com/backend-timedoor/laravel-filter/compare/v1.1.1...v1.1.2
+
 ## Add laravel 8 supports - 2023-10-20
 
 ### What's Changed
