@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-filter` will be documented in this file.
 
+## v1.1.4 - Add Support Laravel 12 - 2025-03-17
+
+### What's Changed
+
+* add laravel 12 support by @taradhita in https://github.com/backend-timedoor/laravel-filter/pull/16
+
+**Full Changelog**: https://github.com/backend-timedoor/laravel-filter/compare/v1.1.3...v1.1.4
+
 ## v1.1.2 - 2024-02-23
 
 ### What's Changed
