@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-filter` will be documented in this file.
 
+## v1.1.5 - Add Laravel 13 support - 2026-11-06
+
+### What's Changed
+
+* feat: add support for Laravel 13 in composer.json dependencies by @taradhita in https://github.com/backend-timedoor/laravel-filter/pull/17
+
+**Full Changelog**: https://github.com/backend-timedoor/laravel-filter/compare/v1.1.4...v1.1.5
+
 ## v1.1.4 - Add Support Laravel 12 - 2025-03-17
 
 ### What's Changed
